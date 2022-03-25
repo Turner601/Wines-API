@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eaeae3;
+}
+
+.main-h2 {
+    padding: 25px 0;
+}
+
+
+/* Header */
+header {
+    padding: 25px;
+    background: black;
+}
+
+header h1 {
+    color: dodgerblue;
+}
+
+.nav-link {
+    color: red;
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    padding: 25px 0;
+    background: black;
+}
+
+footer p {
+    color: dodgerblue;
+    font-size: 18px;
+}
+
+footer a {
+    color: red;
+    text-decoration: none;
+}
+
+/* All Wines */
+.wine-image {
+    height: 400px;
+    width: 150px;
+}

@@ -1,0 +1,41 @@
+<%- include('../partials/header'); %>
+
+<main class="main main-single-wines container text-center">
+    <h2 class="main-h2">
+        <%= name %>
+    </h2>
+    <section class="section section-single-wines">
+        <figure class="figure figure-single-wines">
+            <img src="<%= data.image %>" alt="<%= data.wine %>" class="img-fluid">
+            <figcaption class="figcaption figcap-single-wine">
+                <b><u>Name</u></b>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <%= data.wine %>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <b><u>Winery</u></b>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <%= data.winery %>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <b><u>Location</u></b>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <%= data.location %>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <b><u>Rating</u></b>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <%= data.rating.reviews %>
+            </figcaption>
+            <figcaption class="figcaption figcap-single-wine">
+                <%= data.rating.average %>
+            </figcaption>
+        </figure>
+    </section>
+</main>
+
+<%- include('../partials/footer'); %>

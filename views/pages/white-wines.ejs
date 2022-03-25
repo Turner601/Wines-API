@@ -1,0 +1,25 @@
+<%- include('../partials/header'); %>
+
+<main class="main main-whites container text-center">
+    <h2 class="main-h2">
+        <%= name %>
+    </h2>
+    <section class="section section-whites">
+        <div class="row">
+            <% data.forEach(item => { %>
+                <div class="col-md-3">
+                    <figure class="figure figure-whites">
+                        <a href="/wines/whites/<%= item.id %>">
+                            <img src="<%= item.image %>" alt="<%= item.wine %>" class="img-fluid wine-image">
+                            <figcaption class="figcation figcap-whites">
+                                <%= item.wine %>
+                            </figcaption>
+                        </a>
+                    </figure>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</main>
+
+<%- include('../partials/footer'); %>

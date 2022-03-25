@@ -1,0 +1,149 @@
+const express = require('express')
+const router = express.Router()
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args))
+
+router.get('/', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/reds'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/home', {
+                title: 'Here Is Some Info Regarding Some Wines',
+                name: 'Here Is Some Info Regarding Some Wines',
+                data
+            })
+        })
+})
+
+// Red Wines
+router.get('/reds', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/reds'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/red-wines', {
+                title: 'Red Wines',
+                name: 'Lets Find A Red Wine For You',
+                data
+            })
+        })
+})
+
+// White Wines
+router.get('/whites', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/whites'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/white-wines', {
+                title: 'White Wines',
+                name: 'Lets Find A White Wine For You',
+                data
+            })
+        })
+})
+
+// Sparkling Wines
+router.get('/sparkling', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/sparkling'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/sparkling-wines', {
+                title: 'Sparkling Wines',
+                name: 'Lets Find A Sparkling Wine For You',
+                data
+            })
+        })
+})
+
+// Rose Wines
+router.get('/rose', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/rose'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/rose-wines', {
+                title: 'Rose Wines',
+                name: 'Lets Find A Rose Wine For You',
+                data
+            })
+        })
+})
+
+// Dessert Wines
+router.get('/dessert', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/dessert'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/dessert-wines', {
+                title: 'Dessert Wines',
+                name: 'Lets Find A Dessert Wine For You',
+                data
+            })
+        })
+})
+
+// Port Wines
+router.get('/port', (req, res) => {
+    const URL = 'https://api.sampleapis.com/wines/port'
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            res.render('pages/port-wines', {
+                title: 'Port Wines',
+                name: 'Lets Find A Port Wine For You',
+                data
+            })
+        })
+})
+
+// Types Of Wine
+// router.get('/type/:type', (req, res) => {
+//     const type = req.params.type
+//     const URL = 'https://api.sampleapis.com/wines/reds'
+//     fetch(URL)
+//         .then(res => res.json())
+//         .then(data => {
+//             const typeArr = []
+//             data.forEach(item => {
+//                 if (item.type == type) {
+//                     typeArr.push(item)
+//                 }
+//             })
+//             return typeArr
+//         })
+//         .then(typeArr => {
+//             res.render('pages/wines', {
+//                 title: type,
+//                 name: `${type} Wine`,
+//                 data: typeArr
+//             })
+//         })
+// })
+
+// Single Wines
+router.get('/:type/:id', (req, res) => {
+    const type = req.params.type
+    const id = req.params.id
+    const URL = `https://api.sampleapis.com/wines/${type}/${id}`
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            if (Object.keys(data).length >= 1) {
+                res.render('pages/single-wines', {
+                    title: `${data.wine}`,
+                    name: `${data.wine}`,
+                    data
+                })
+            } else {
+                res.render('pages/404', {
+                    title: '404 Error',
+                    name: '404 Error'
+                })
+            }
+        })
+})
+
+module.exports = router
